@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://JMyin.github.io">
   <title>ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？ | JMyin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 123456">
+  <meta name="description" content="之前看书时，有下面2段代码，当时看的时候不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 12345678">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？">
 <meta property="og:url" content="https://JMyin.github.io/2017/04/26/jsoptionsdeliverway/index.html">
 <meta property="og:site_name" content="JMyin">
-<meta property="og:description" content="之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 123456">
+<meta property="og:description" content="之前看书时，有下面2段代码，当时看的时候不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 12345678">
 <meta property="og:image" content="http://oow60tecr.bkt.clouddn.com/1.PNG">
 <meta property="og:image" content="http://oow60tecr.bkt.clouddn.com/2.PNG">
-<meta property="og:updated_time" content="2017-04-26T08:42:57.965Z">
+<meta property="og:updated_time" content="2017-04-26T10:59:06.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？">
-<meta name="twitter:description" content="之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 123456">
+<meta name="twitter:description" content="之前看书时，有下面2段代码，当时看的时候不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 12345678">
 <meta name="twitter:image" content="http://oow60tecr.bkt.clouddn.com/1.PNG">
   
     <link rel="alternative" href="/atom.xml" title="JMyin" type="application/atom+xml">
@@ -181,7 +181,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function setName(obj) &#123;</div><div class="line">    obj.name = &quot;Nic&quot;;</div><div class="line">&#125;;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">alert(person.name); // Nic</div></pre></td></tr></table></figure></p>
+        <p>之前看书时，有下面2段代码，当时看的时候不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function setName(obj) &#123;</div><div class="line">    obj.name = &quot;Nic&quot;;</div><div class="line">&#125;;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">alert(person.name); // Nic</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function setName(obj) &#123;</div><div class="line">    obj.name = &quot;Nic&quot;;</div><div class="line">    obj = new Object();</div><div class="line">    obj.name = &quot;lala&quot;;</div><div class="line">&#125;;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">alert(person.name); // Nic</div></pre></td></tr></table></figure>
 <p><br></p>
 <h6 id="ES中包含两种不同数据类型的值：基本类型值和引用类型值。"><a href="#ES中包含两种不同数据类型的值：基本类型值和引用类型值。" class="headerlink" title="ES中包含两种不同数据类型的值：基本类型值和引用类型值。"></a>ES中包含两种不同数据类型的值：基本类型值和引用类型值。</h6><ul>
