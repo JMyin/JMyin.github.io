@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://JMyin.github.io">
-  <title>Hello World | JMyin</title>
+  <title>ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？ | JMyin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 123456">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://JMyin.github.io/2017/04/23/hello-world/index.html">
+<meta property="og:title" content="ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？">
+<meta property="og:url" content="https://JMyin.github.io/2017/04/26/jsoptionsdeliverway/index.html">
 <meta property="og:site_name" content="JMyin">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-04-26T07:07:17.358Z">
+<meta property="og:description" content="之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 123456">
+<meta property="og:image" content="http://oow60tecr.bkt.clouddn.com/1.PNG">
+<meta property="og:image" content="http://oow60tecr.bkt.clouddn.com/2.PNG">
+<meta property="og:updated_time" content="2017-04-26T08:42:57.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？">
+<meta name="twitter:description" content="之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。123456function setName(obj) &amp;#123;    obj.name = &amp;quot;Nic&amp;quot;;&amp;#125;;var person = new Object();setName(person);alert(person.name); // Nic 123456">
+<meta name="twitter:image" content="http://oow60tecr.bkt.clouddn.com/1.PNG">
   
     <link rel="alternative" href="/atom.xml" title="JMyin" type="application/atom+xml">
   
@@ -158,35 +161,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jsoptionsdeliverway" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？
     </h1>
   
 
         
-        <a href="/2017/04/23/hello-world/" class="archive-article-date">
-  	<time datetime="2017-04-23T08:19:15.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-23</time>
+        <a href="/2017/04/26/jsoptionsdeliverway/" class="archive-article-date">
+  	<time datetime="2017-04-26T07:46:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>之前看书时，有下面2段代码，当时看的时候感觉不甚理解，后来查了很多资料，现在整理了一下，分享出来一起学习。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function setName(obj) &#123;</div><div class="line">    obj.name = &quot;Nic&quot;;</div><div class="line">&#125;;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">alert(person.name); // Nic</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function setName(obj) &#123;</div><div class="line">    obj.name = &quot;Nic&quot;;</div><div class="line">    obj = new Object();</div><div class="line">    obj.name = &quot;lala&quot;;</div><div class="line">&#125;;</div><div class="line">var person = new Object();</div><div class="line">setName(person);</div><div class="line">alert(person.name); // Nic</div></pre></td></tr></table></figure>
+<p><br></p>
+<h6 id="ES中包含两种不同数据类型的值：基本类型值和引用类型值。"><a href="#ES中包含两种不同数据类型的值：基本类型值和引用类型值。" class="headerlink" title="ES中包含两种不同数据类型的值：基本类型值和引用类型值。"></a>ES中包含两种不同数据类型的值：基本类型值和引用类型值。</h6><ul>
+<li>基本类型值是指简单的数据段，比如：UNdefined、Null、Number、String、Boolean。</li>
+<li>而引用类型值指可能由多个值构成的对象。比如Object,Array,Function,Date等，引用类型的值是保存在内存中的变量。引用类型的值是按引用访问的。因为js不允许直接访问内存中的位置（不能直接操作对象的内存空间），在操作对象时，实际是在操作对象的引用而不是实际对象。<br><h6 id="不同类型值存储在内存中的不同位置"><a href="#不同类型值存储在内存中的不同位置" class="headerlink" title="不同类型值存储在内存中的不同位置"></a>不同类型值存储在内存中的不同位置</h6></li>
+<li>基本类型值：存储在栈（stack）中，也就是说，它们的值直接存储在变量访问的位置。因为可以操作保存在变量中的实际的值，基本数据类型是按值访问的，而且不能给基本类型的值添加属性和方法，所以这些基本类型占据的空间是固定的，可将他们存储在较小的内存区域 – 栈中。这样存储便于迅速查寻变量的值。</li>
+<li>引用类型值：存储在堆（heap）中的对象，也就是说，存储在变量处的值是一个指针（point），指向存储对象的内存地址。这是因为：引用值是对象，对象的属性和方法可能会发生改变，所以不能把它放在栈中，否则会降低变量查寻的速度。相反，放在变量的栈空间中的值是该对象存储在堆中的地址。地址的大小是固定的，所以把它存储在栈中对变量性能无任何负面影响。如下图所示：</li>
+</ul>
+<p><img src="http://oow60tecr.bkt.clouddn.com/1.PNG" alt="image"></p>
+<h6 id="不同的内存分配机制也带来了不同的访问机制"><a href="#不同的内存分配机制也带来了不同的访问机制" class="headerlink" title="不同的内存分配机制也带来了不同的访问机制"></a>不同的内存分配机制也带来了不同的访问机制</h6><p>在javascript中是不允许直接访问保存在堆内存中的对象的，所以在访问一个对象时，首先得到的是这个对象在堆内存中的地址，然后再按照这个地址去获得这个对象中的值。而基础类型的值则是可以直接访问到的。</p>
+<h6 id="复制变量"><a href="#复制变量" class="headerlink" title="复制变量"></a>复制变量</h6><ul>
+<li>基本类型值：如果从一个变量向另一个变量复制基本类型值，会在变量对象上创建一个新值，然后把该值复制到位新变量分配的位置上。此后，这两个变量可以参与任何操作而不会相互影响。</li>
+<li>引用类型值：在将一个变量向另一个变量复制引用类型的值时，也会将存储在变量对象中的变量中的值复制一份放到新变量分配的空间中，不同的是，这个值的副本是一个指针，也就是说这两个变量都指向了堆内存中的同一个对象，改变其中一个变量，就会影响另一个变量。如下例所示：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var obj1 = new Object();</div><div class="line">var obj2 = obj1;</div><div class="line">obj1.name = &quot;Nic&quot;;</div><div class="line">alert(boj2.name); // Nic</div></pre></td></tr></table></figure>
+<p>保存在变量中的对象和保存在堆中的对象之间的关系如下图所示。</p>
+<p><img src="http://oow60tecr.bkt.clouddn.com/2.PNG" alt="image"></p>
+<h6 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h6><p>ECMAScript中所有函数的参数都是按值来传递的。把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制，而引用类型值的传递，则如同引用类型变量的复制一样。但是为什么涉及到基本类型与引用类型的值时仍然有区别呢，就是因为内存分配时的差别。</p>
+<ul>
+<li>基本类型值：只是把变量里的值传递给参数，之后参数和这个变量互不影响。</li>
+<li>引用类型值：对象变量它里面的值是这个对象在堆内存中的内存地址，因此它传递的值也就是这个内存地址，这也就是为什么函数内部对这个参数的修改会体现在外部的原因了，因为它们都指向同一个对象呀。</li>
+</ul>
+<p>现在可以很清楚的理解最开始的两段代码了！<br>第一段代码中，person中保存了一个对象的地址，然后将person复制给obj，在函数内部，obj 和 person 指向同一个对象。于是，当在函数内部为obj添加name属性后，函数外部的person也将有所反映。第二段代码中，在函数setName（）第一行，为obj添加name属性，此时外部的person也拥有了这个属性，函数第二行代码，将另一个新对象赋值给obj，此时，obj中保存的地址变成了新对象的地址，此时函数内部obj和函数外部的person指向的对象就不一样了，所以最后person.name输出的是NIC。</p>
+<p>参考：<br><a href="https://www.zhihu.com/question/27114726/answer/35481766" target="_blank" rel="external">https://www.zhihu.com/question/27114726/answer/35481766</a><br><a href="http://www.w3school.com.cn/js/pro_js_value.asp" target="_blank" rel="external">http://www.w3school.com.cn/js/pro_js_value.asp</a></p>
 
       
 
@@ -266,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://JMyin.github.io/2017/04/23/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://JMyin.github.io/2017/04/26/jsoptionsdeliverway/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,11 +299,15 @@
   
 <nav id="article-nav">
   
-  
-    <a href="/2017/04/26/jsoptionsdeliverway/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ECMAScript中函数传递的参数是object的话，是按值传递还是按引用传递？</div>
-      <i class="icon-circle-right"></i>
+    <a href="/2017/04/23/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
     </a>
+  
   
 </nav>
 
